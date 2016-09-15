@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		<record model="ir.ui.view" id="kursus_tree_view">
+			<field name="name">training.kursus.tree</field>
+			<field name="model">training.kursus</field>
+			<field name="arch" type="xml">
+				<tree string="List Kursus">
+					<field name="name"/>
+					<field name="mentor"/>
+					<field name="kapasitas"/>
+					<field name="keterangan"/>
+					<field name="nomor"/>
+					<field name="product_id" />
+					<field name="uom_name" readonly="1"/>
+				</tree>
+			 </field>
+		</record>
+		 
+		<record model="ir.ui.view" id="kursus_form_view">
+			<field name="name">training.kursus.form</field>
+			<field name="model">training.kursus</field>
+			<field name="arch" type="xml">
+				<form string="Form Kursus" version="7.0">
+					<group> 
+						<field name="name" />
+						<field name="mentor" />
+						<field name="kapasitas" />
+					</group>
+					<notebook>
+						<page string="Keterangan">
+							<field name="keterangan" nolabel="1" colspan="4" />
+						</page>
+					</notebook>
+					<group> 
+						<field name="nomor" />
+						<field name="product_id" />
+						<field name="uom_name" readonly="1"/>
+					</group>
+				</form>
+			</field>
+		</record>
+		 
+		<record model="ir.actions.act_window" id="kursus_action">
+			<field name="name">Kursus</field>
+			<field name="res_model">training.kursus</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add new Kursus class.
+              </p><p>
+                Odoo helps you easily track all activities related to
+                a Kursus class.
+              </p>
+            </field>
+		</record>
+		 
+		<menuitem id="training_menu" name="Training OpenERP" action="kursus_action"/>
+		<menuitem id="kursus_menu" name="Training" parent="training_menu" />
+		<menuitem name="Kursus" parent="kursus_menu" id="kursus_menuitem" action="kursus_action"/>
+    </data>
+</openerp>

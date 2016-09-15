@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_state_area_tree" model="ir.ui.view">
+            <field name="name">state.area.tree</field>
+            <field name="model">state.area</field>
+            <field name="arch" type="xml">
+                <tree string="State Area">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_state_area_form" model="ir.ui.view">
+            <field name="name">state.area.form</field>
+            <field name="model">state.area</field>
+            <field name="arch" type="xml">
+                <form string="State Area">
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_state_area" model="ir.actions.act_window">
+            <field name="name">State Area</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">state.area</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="view_state_area_tree"/>
+            <field name="help">If you are working on the American market, you can manage the different federal states you are working on from here. Each state is attached to one country.</field>
+        </record>
+
+          <menuitem action="action_state_area" id="menu_state_area" parent="base.menu_localisation" sequence="1" groups="base.group_no_one"/>
+    </data>
+</openerp>
