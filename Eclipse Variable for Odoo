@@ -1,0 +1,9 @@
+Eclipse Run Configuration
+1. Open edit run/debug configuration
+2. Open tabs Arguments
+3. In Program Argiment click Variable
+4. Click Edit Variable
+5. Click New
+6. Fill the column
+	Name: what ever
+	Value: --config=/home/<user_name>/odoo/odoo_conf/openerp_server.conf
