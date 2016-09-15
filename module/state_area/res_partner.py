@@ -9,5 +9,8 @@ class res_partner(models.Model):
     def onchange_state(self, state_id):
         if state_id:
             state = self.env['res.country.state'].browse(state_id)
-            return {'value': {'country_id': state.country_id.id,'state_area': state.state_area.id}}
+            if state.state_area:
+                return {'value': {'country_id': state.country_id.id,'state_area': state.state_area.id}}
+            else:
+                return {'value': {'country_id': state.country_id.id,'state_area': ''}}
         return {}  
