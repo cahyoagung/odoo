@@ -9,7 +9,7 @@
     'website': "http://www.housecode.net",
     'category': 'Custom',
     'version': '0.1',
-    'depends': ['sale',"base"],
+    'depends': ['sale','base'],
     'installable':True,
     'application': True,
     'data':[
