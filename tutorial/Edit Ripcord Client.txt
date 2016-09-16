@@ -1,0 +1,25 @@
+1. Open ricpord_client.php
+2. Find class Ripcord_Transport_Stream method post
+3. Change this code
+
+		$result  = @file_get_contents( $url, false, $context );
+        $this->responseHeaders = $http_response_header; // <--- move this line
+		if ( !$result )
+		{
+			throw new Ripcord_TransportException( 'Could not access ' . $url, 
+				ripcord::cannotAccessURL );
+		}
+		return $result;
+
+   become this
+
+		$result  = @file_get_contents( $url, false, $context );
+		if ( !$result )
+		{
+			throw new Ripcord_TransportException( 'Could not access ' . $url, 
+				ripcord::cannotAccessURL );
+		}
+        $this->responseHeaders = $http_response_header; // <--- to this line
+		return $result;
+
+4. The code has been moved can make an exception when the service is down
