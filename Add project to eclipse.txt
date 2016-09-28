@@ -1,0 +1,7 @@
+1. create new pydev project
+2. add new folder in project linked to external source
+3. eclipse variable
+4. edit odoo/openerp/__init__.py remark 
+	#if sys.modules.get("gevent") is not None:
+	#    evented = True
+

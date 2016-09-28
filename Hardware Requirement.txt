@@ -1,0 +1,6 @@
+Kebutuhan hardware
+1. Procc Xeon 3GHz
+2. RAM 8GB
+3. HDD 500GB
+4. Internet connection speed 512kbps
+5. OS ubuntu server

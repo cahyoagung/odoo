@@ -1,0 +1,4 @@
+sudo apt-get install python-dev libhdf5-dev python-dbg python-pip
+sudo pip install Cython
+sudo pip install numpy
+sudo pip install h5py
