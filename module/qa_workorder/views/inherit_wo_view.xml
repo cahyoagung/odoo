@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	
+    	<record id="do_production_change" model="ir.ui.view">
+            <field name="name">do_production_change.form</field>
+            <field name="model">mrp.production.workcenter.line</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="mrp_operations_extension.workcenter_line_inh_form_view"/>
+            <field name="arch" type="xml">
+				<xpath expr="//form/sheet/group[1]/field[@name='do_production']" position="replace">
+					<field name="do_production" on_change="on_produce_here_change(do_production)" />
+				</xpath>
+            </field>
+        </record>
+    	
+    </data>
+</openerp>

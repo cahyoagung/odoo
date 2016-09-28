@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.module.category" id="module_category_quality_assurance">
+            <field name="name">Quality assurance</field>
+        </record>
+
+        <record id="group_quality_assurance_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="module_category_quality_assurance"/>
+        </record>
+
+        <record id="group_quality_assurance_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="module_category_quality_assurance"/>
+            <field name="implied_ids" eval="[(4, ref('group_quality_assurance_user'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+
+        <record id="qa_test_multi_company_rule" model="ir.rule">
+            <field name="name">Quality assurance test multi-company</field>
+            <field name="model_id" ref="model_qa_test"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', [user.company_id.id])]</field>
+        </record>
+
+        <record id="qa_inspection_multi_company_rule" model="ir.rule">
+            <field name="name">Quality assurance inspection multi-company</field>
+            <field name="model_id" ref="model_qa_inspection"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', [user.company_id.id])]</field>
+        </record>
+
+        <record id="qa_trigger_multi_company_rule" model="ir.rule">
+            <field name="name">Quality assurance trigger multi-company</field>
+            <field name="model_id" ref="model_qa_trigger"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', [user.company_id.id])]</field>
+        </record>
+
+    </data>
+</openerp>
